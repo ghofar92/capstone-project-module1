@@ -16,7 +16,7 @@ datakaryawan = [
 ]
 
 userinput = '' # Agar langsung jalan looping
-while userinput != '5': # Agar mekakukan looping terus sampai user pilih menu 5
+while userinput != '5': # Agar melakukan looping terus sampai user pilih menu 5
     print("\n======== Sistem Informasi Karyawan ========\n")
     for menu in menulist: # Agar tidak perlu menulis print satu - satu
         print(menu)
@@ -42,12 +42,12 @@ while userinput != '5': # Agar mekakukan looping terus sampai user pilih menu 5
                               f"Domisili: {karyawan['domisili']}, Jabatan: {karyawan['jabatan']}, Divisi: {karyawan['divisi']}")
 
                 # Menu kecil setelah tampilkan data
-                while True:
+                while True: # Bisa diakses berulang kali tanpa harus balik ke menu utama setiap kali selesai 1 menu
                     print("\n99. Kembali ke Report Data Karyawan")
                     print("00. Menu Utama")
                     submenu = input("Pilihan Anda: ")
                     if submenu == '99':
-                        break  # embali ke report data karyawan
+                        break  #kembali ke report data karyawan
                     elif submenu == '00':
                         userinput = ''  # Memaksa kembali ke menu utama
                         break
@@ -66,7 +66,7 @@ while userinput != '5': # Agar mekakukan looping terus sampai user pilih menu 5
                         ditemukan = False # Untuk menandai apakah data ketemu atau tidak. Kalau tidak ketemu setelah loop, kita beri pesan
                         for pegawai in datakaryawan:
                             if pegawai['NIP'] == nipinput:
-                                print(f"\nData Pegawai:")
+                                print(f"\nData Karyawan:")
                                 print(f"NIP      : {karyawan['NIP']}")
                                 print(f"Nama     : {karyawan['employeename']}")
                                 print(f"Domisili : {karyawan['domisili']}")
@@ -103,7 +103,7 @@ while userinput != '5': # Agar mekakukan looping terus sampai user pilih menu 5
 
         # Cari data
         index_karyawan = None # Karena kita belum tahu apakah NIP yang dimasukkan user ada di list data karyawan atau tidak, 
-                               # bisa dipakai untuk menampilkan pesan “Data tidak ditemukan”.
+                               # bisa dipakai untuk menampilkan pesan “Data karyawan tidak ditemukan”.
         for i, pegawai in enumerate(datakaryawan): # Menampilkan no urut + data karyawan
             if pegawai['NIP'] == nipinput:
                 index_karyawan = i
@@ -115,7 +115,7 @@ while userinput != '5': # Agar mekakukan looping terus sampai user pilih menu 5
 
         # Tampilkan data lama
         karyawan = datakaryawan[index_karyawan]
-        print(f"\nData Pegawai:")
+        print(f"\nData Karyawan:")
         print(f"NIP      : {karyawan['NIP']}")
         print(f"Nama     : {karyawan['employeename']}")
         print(f"Domisili : {karyawan['domisili']}")
